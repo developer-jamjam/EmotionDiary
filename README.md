@@ -1,7 +1,14 @@
-## 감정기록 일기 Project :heart_eyes:
+# 감정기록 Project :heart_eyes:
 
-## 감정을 기록하고 수정하고 기록된 감정을 볼 수 있다.
+: Frontend-Developer 404
 
+### Description
+
+- 감정을 기록 하고
+- 기록 된 감정을 List 로 보여주고
+- 기록 된 감정을 Click 시 해당하는 감정기록 상세페이지로 이동하고
+- 작성 된 날짜 순으로 filter , 감정점수에 따라 filter 가능하고
+- 기록 된 감정을 수정 할 수 있는 나만의 감정기록Diary
 
 ## 2023_03_07 : Project 기초 환경 설정
 
