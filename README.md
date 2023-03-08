@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+## 감정기록 일기 Project :heart_eyes:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 감정을 기록하고 수정하고 기록된 감정을 볼 수 있다.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 2023_03_07 : Project 기초 환경 설정
 
-### `npm start`
+> > ### 1. Font Setting
+> >
+> > > #### - Google Web Fonts를 이용 프로젝트에 사용할 폰트를 선택 후 Setting
+> > >
+> > > #### - App.css 에 Google Web Fonts에서 고른 폰트 @import
+> >
+> > ### 2. Layout Setting
+> >
+> > > #### - 모든 페이지에 반영되는 공통 레이아웃 셋팅
+> > >
+> > > #### - body tag css 추가
+> > >
+> > > ```javascript
+> > >   body {
+> > >       background-color: #f6f6f6;
+> > >       display: flex;
+> > >       justify-content: center;
+> > >       align-items: center;
+> > >       font-family: 'Nanum Pen Script';
+> > >       min-height: 100vh;
+> > >       margin: 0px;
+> > >   }
+> > > ```
+> > >
+> > > #### - Media Query 사용
+> > >
+> > > ```
+> > >   @media (min-width : 650px){
+> > >       .App{
+> > >           width: 640px;
+> > >       }
+> > >   }
+> > >
+> > >   @media (max-width : 650px) {
+> > >       .App {
+> > >           width: 90vw;
+> > >       }
+> > >   }
+> > > ```
+> > >
+> > > #### - Id가 root 인 Div , className이 App 인 Div에 Style 추가
+> > >
+> > > ```
+> > >   #root {
+> > >       background-color: white;
+> > >       box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+> > >   }
+> > >
+> > >   .App {
+> > >       min-height: 100vh;
+> > >       padding-left: 20px;
+> > >       padding-right: 20px;
+> > >   }
+> > > ```
+> >
+> > ### 3. img assets Setting
+> >
+> > > #### - Project에서 사용 할 img public > assets폴더 생성 > 해당폴더 안에 img Setting
+> > >
+> > > #### - 사용 ex)
+> > >
+> > > ```
+> > > process.env.PUBLIC_URL +`/assets/emotion2.png`
+> > > ```
+> >
+> > ### 4. 공통 Component Setting
+> >
+> > > #### - 모든 페이지에 공통으로 사용되는 Button, Header Component Setting
+> > >
+> > > #### - src > components > MyButton.js / MyHeader.js
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
