@@ -84,3 +84,21 @@ process.env.PUBLIC_URL +`/assets/emotion2.png`
 > #### - src components MyButton.js / MyHeader.js
 
 ---
+
+## 2023_03_07 : Home화면 구현\_1
+
+### 1. Header 구현
+
+- 현재 시점을 표시한다.
+  - [curDate, setCurDate] = useState(new Data()) 사용 기본값을 현재 날짜로 셋팅
+  - MyHeader Component import
+  - headText = `${curDate.getFullYear()}년 ${curDate.getMonth()+1}월 `
+- 왼쪽 버튼 , 오른쪽 버튼을 구현 한다.
+  - MyButton Component import
+  - leftChild , rightChild에 각각 MyButton컴포넌트를 Setting한다.
+  - rightChild Button onClick에 increaseMonth함수 전달
+    - increaseMonth => Month + 1 하여 한달 씩 앞으로 가게 만드는 함수 구현
+  - leftChild Button onClick에 decreaseMonth함수 전달
+    - decreaseMonth => Month - 1 하여 한달 씩 뒤로 가게 만드는 함수 구현
+
+---
