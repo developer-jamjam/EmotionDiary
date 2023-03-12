@@ -14,9 +14,11 @@
 
 ### 1. Font Setting
 
-> #### - Google Web Fonts를 이용 프로젝트에 사용할 폰트를 선택 후 Setting
+> #### - Google Web Fonts를 이용 프로젝트에 사용할 Font를 선택 후 Setting 한다.
 >
-> #### - App.css 에 Google Web Fonts에서 고른 폰트 @import
+> #### - App.css 에 Google Web Fonts에서 고른 Font @import
+>
+> #### - Nanum Pen Script , Yeon Sung 2가지 Font 사용
 
 ### 2. Layout Setting
 
@@ -83,22 +85,20 @@ process.env.PUBLIC_URL +`/assets/emotion2.png`
 >
 > #### - src components MyButton.js / MyHeader.js
 
----
+### 5. 상태 관리 세팅하기
 
-## 2023_03_07 : Home화면 구현\_1
+> #### - Project 전반적으로 사용 될 감정기록 데이터 State 관리 로직 작성하기
+>
+> #### - useReducer사용 , reducer 함수 구현
 
-### 1. Header 구현
+### 6. 프로젝트 State Context 세팅하기
 
-- 현재 시점을 표시한다.
-  - [curDate, setCurDate] = useState(new Data()) 사용 기본값을 현재 날짜로 셋팅
-  - MyHeader Component import
-  - headText = `${curDate.getFullYear()}년 ${curDate.getMonth()+1}월 `
-- 왼쪽 버튼 , 오른쪽 버튼을 구현 한다.
-  - MyButton Component import
-  - leftChild , rightChild에 각각 MyButton컴포넌트를 Setting한다.
-  - rightChild Button onClick에 increaseMonth함수 전달
-    - increaseMonth => Month + 1 하여 한달 씩 앞으로 가게 만드는 함수 구현
-  - leftChild Button onClick에 decreaseMonth함수 전달
-    - decreaseMonth => Month - 1 하여 한달 씩 뒤로 가게 만드는 함수 구현
+> #### - 감정기록 데이터 State를 공급할 Context 생성 Provider로 공급하기
+>
+> #### - `export const DiaryStateContext = React.createContext();`
 
----
+### 7. 프로젝트 Dispatch Context 세팅하기
+
+> #### - 감정기록 데이터 State의 Dispatch 함수들을 공급할 Context를 생성하고 Provider로 공급하기
+>
+> #### - `export const DiaryDispatchContext = React.createContext();`
