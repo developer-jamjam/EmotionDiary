@@ -75,7 +75,7 @@ const dummyData = [
 function App() {
 
   const [data, dispatch] = useReducer(reducer, dummyData);
-  const dataId = useRef(0);
+  const dataId = useRef(0); //dummyData의 key값으로 인해 중복 key에러 발생 할 수 있다. 
 
   const onCreate = (date, content, emotion) => {
     dispatch({
