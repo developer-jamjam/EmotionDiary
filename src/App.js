@@ -1,4 +1,4 @@
-import React, { useReducer, useRef } from 'react';
+import React, { useEffect, useReducer, useRef } from 'react';
 import './App.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
@@ -33,50 +33,29 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+
+  localStorage.setItem("diary", JSON.stringify(newState));
   return newState;
 }
 
 export const DiaryStateContext = React.createContext();
 export const DiaryDispatchContext = React.createContext();
 
-const dummyData = [
-  {
-    id: 1,
-    content: "코드네임 버본",
-    emotion:5,
-    date: 1678200416929
-  },
-  {
-    id: 2,
-    content: "코드네임 베르무트",
-    emotion:4,
-    date: 1678200416930
-  },
-  {
-    id: 3,
-    content: "코드네임 진",
-    emotion:1,
-    date: 1678200416931
-  },
-  {
-    id: 4,
-    content: "FBI수사관 아카이 슈이치",
-    emotion:4,
-    date: 1678200416932
-  },
-  {
-    id: 5,
-    content: "팝마트 캐릭터 Dimoo",
-    emotion:3,
-    date: 1678200416933
-  },
-];
-
 function App() {
 
-  const [data, dispatch] = useReducer(reducer, dummyData);
-  const dataId = useRef(0); //dummyData의 key값으로 인해 중복 key에러 발생 할 수 있다. 
+  const [data, dispatch] = useReducer(reducer, []);
 
+  useEffect(()=> {
+    const localData = localStorage.getItem("diary");
+    if (localData) {
+      const diaryList = JSON.parse(localData).sort((a,b)=>parseInt(b.id) - parseInt(a.id));
+      dataId.current = parseInt(diaryList[0].id) + 1;
+
+      dispatch({ type:"INIT", data:diaryList });
+    }
+  },[])
+
+  const dataId = useRef(0); //key값 관련 오류가 난다면 이쪽을 확인 해 볼것 
   const onCreate = (date, content, emotion) => {
     dispatch({
       type:"CREATE", 
@@ -90,11 +69,11 @@ function App() {
     dataId.current += 1;
   };
 
-  const onRemove = (targetId)=>{
-    dispatch({type:"REMOVE"},targetId);
+  const onRemove = (targetId) => {
+    dispatch({type:"REMOVE", targetId});
   };
 
-  const onEdit = (targetId,date,content,emotion) =>{
+  const onEdit = (targetId,date,content,emotion) => {
     dispatch({
       type:"EDIT",
       data:{
