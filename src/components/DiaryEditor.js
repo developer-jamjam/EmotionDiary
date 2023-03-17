@@ -7,6 +7,8 @@ import MyHeader from './MyHeader';
 import EmotionItem from './EmotionItem';
 import { getStringDate } from '../util/date.js';
 import { emotionList } from '../util/emotion.js';
+import withReactContent from 'sweetalert2-react-content';
+import Swal from 'sweetalert2';
 
 
 const DiaryEditor = ({isEdit,originData}) => {
@@ -18,6 +20,8 @@ const DiaryEditor = ({isEdit,originData}) => {
     const {onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
     const navigate = useNavigate();
 
+    const MyConfirm = withReactContent(Swal);
+
     const handleClickEmote = useCallback((emotion) => {
         setEmotion(emotion);
     },[]);
@@ -27,21 +31,37 @@ const DiaryEditor = ({isEdit,originData}) => {
             contentRef.current.focus();
             return;
         }
-        if (window.confirm(isEdit? "감정 기록을 수정 하시겠습니까?" : "새로운 감정을 기록 하시겠습니까?")) {
-            if (!isEdit) {
-                onCreate(date, content, emotion);
-            } else {
-                onEdit(originData.id, date, content, emotion);
+
+        MyConfirm.fire({
+            title: isEdit? <p>감정 기록을 수정 하시겠습니까?</p> : <p>새로운 감정을 기록 하시겠습니까?</p> ,
+            showDenyButton: true,
+            confirmButtonText: isEdit? "수정" : "기록" ,
+            denyButtonText: isEdit? "수정취소" : "기록취소",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                if (!isEdit) {
+                    onCreate(date, content, emotion);
+                } else {
+                    onEdit(originData.id, date, content, emotion);
+                }
+                navigate('/home',{replace: true});
             }
-        }
-        navigate('/',{replace: true});
+        })
     }
 
     const handleRemove = () => {
-        if (window.confirm('감정기록을 삭제하시겠습니까?')) {
-            onRemove(originData.id);
-            navigate('/',{replace: true});
-        }
+        MyConfirm.fire({
+            icon: 'warning',
+            title: <p>감정기록을 삭제 하시겠습니까?</p> ,
+            showDenyButton: true,
+            confirmButtonText: "기록삭제",
+            denyButtonText: "취소",
+        }).then((result)=> {
+            if (result.isConfirmed) {
+                onRemove(originData.id);
+                navigate('/home',{replace: true});
+            }
+        })
     }
 
     useEffect(()=>{

@@ -29,7 +29,7 @@ const Diary = () =>{
                 setData(targetDiary);
             } else {
                 alert("감정기록이 없습니다.")
-                navigate('/',{ replace: true});
+                navigate('/home',{ replace: true});
             }
         }
     },[id,diaryList])

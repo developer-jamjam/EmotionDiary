@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Yeon+Sung&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dongle&family=Nanum+Pen+Script&family=Yeon+Sung&display=swap');
 
 body {
   background-color: #f6f6f6;
@@ -14,10 +14,16 @@ body {
   .App{
     width: 640px;
   }
+  .MainPage .main_img {
+    width: 640px;
+  }
 }
 
 @media (max-width : 650px) {
   .App {
+    width: 90vw;
+  }
+  .MainPage .main_img {
     width: 90vw;
   }
 }
@@ -368,4 +374,52 @@ header button{
   font-family: 'Yeon Sung';
   font-weight: 400;
   line-height: 2.5;
+}
+
+/* MainPage */
+.MainPage .main_btn_div {
+  text-align: center;
+}
+.MainPage .main_img_div {
+  display: flex;
+  justify-content: center;
+}
+
+.MainPage .main_img {
+  margin-top: 200px;
+}
+
+
+.MainPage .main_button {
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  margin-top: 15px;
+
+  white-space: nowrap;
+  font-family: 'Dongle';
+  font-size: 35px;
+  color: rgb(10, 56, 33);
+  display: inline-block;
+
+  background-color: whitesmoke;
+}
+
+/* SweetAlert2 */
+
+.swal2-confirm {
+  font-family: 'Nanum Pen Script';
+  font-size: 20px !important;
+  background-color: #64c964 !important;
+}
+.swal2-deny {
+  font-family: 'Nanum Pen Script';
+  font-size: 20px !important;
+  background-color: #fd565f !important;
 }

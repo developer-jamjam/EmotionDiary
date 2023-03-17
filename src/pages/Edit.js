@@ -23,7 +23,7 @@ const Edit = () =>{
             if (targetDiary) {
                 setOriginData(targetDiary);
             } else {
-                navigate('/',{ replace: true});
+                navigate('/home',{ replace: true});
             }
         }
     },[id,diaryList]);
