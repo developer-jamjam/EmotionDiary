@@ -14,6 +14,10 @@ const Diary = () =>{
     const navigate = useNavigate(); 
     const [data,setData] = useState();
 
+    useEffect(()=> {
+        const titleElement = document.getElementsByTagName("title")[0];
+        titleElement.innerHTML = `감정기록 : ${id}번째 기록`;
+    },[]);
 
     useEffect(()=>{
         if (diaryList.length >= 1) {
@@ -37,7 +41,7 @@ const Diary = () =>{
         const curEmotionData = emotionList.find(
             (it)=>parseInt(it.emotion_id) === parseInt(data.emotion)
         );
-        
+
         return (
             <div className="DiaryPage">
                 <MyHeader 

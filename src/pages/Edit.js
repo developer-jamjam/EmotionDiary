@@ -9,6 +9,11 @@ const Edit = () =>{
     const [originData, setOriginData] = useState();
     const diaryList = useContext(DiaryStateContext);
     
+    useEffect(()=> {
+        const titleElement = document.getElementsByTagName("title")[0];
+        titleElement.innerHTML = `감정기록 : ${id}번째기록수정`;
+    },[]);
+
     useEffect(()=>{
         if (diaryList.length >= 1) {
             const targetDiary = diaryList.find(
