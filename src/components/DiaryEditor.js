@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from 'react';
+import { useCallback, useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { DiaryDispatchContext } from '../App.js';
 
@@ -18,9 +18,9 @@ const DiaryEditor = ({isEdit,originData}) => {
     const {onCreate, onEdit, onRemove } = useContext(DiaryDispatchContext);
     const navigate = useNavigate();
 
-    const handleClickEmote = (emotion) => {
+    const handleClickEmote = useCallback((emotion) => {
         setEmotion(emotion);
-    }
+    },[]);
 
     const handleSubmit = () => {
         if (content.length < 1) {
@@ -98,9 +98,9 @@ const DiaryEditor = ({isEdit,originData}) => {
                 </section>
                 <section>
                     <div className="control_box">
-                        <MyButton text={"기록취소"} onClick={()=> navigate(-1)}/>
+                        <MyButton text={isEdit ? "수정취소" : "기록취소"} onClick={()=> navigate(-1)}/>
                         <MyButton 
-                            text={"기록완료"} 
+                            text={isEdit? "수정완료": "기록완료"} 
                             type={"positive"} 
                             onClick={handleSubmit}
                         />
