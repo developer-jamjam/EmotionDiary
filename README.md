@@ -12,6 +12,13 @@
 - 작성 된 날짜 순으로 filter , 감정점수에 따라 filter 가능하고
 - 기록 된 감정을 수정 할 수 있는 나만의 감정기록Diary
 
+### 💻 기술 스택
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat&logo=HTML5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=CSS3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=JavaScript&logoColor=white)
+![React](https://img.shields.io/badge/React-61DAFB?style=flat&logo=React&logoColor=white)
+
+
 ## 2023_03_07 : Project 기초 환경 설정
 
 ### 1. Font Setting
